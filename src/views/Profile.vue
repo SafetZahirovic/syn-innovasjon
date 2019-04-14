@@ -1,3 +1,4 @@
+import { BloodType } from '../types/BloodType'
 <template>
 	<VContainer>
 		<SideBar>My Profile</SideBar>
@@ -59,35 +60,48 @@
 </template>
 
 <script lang="ts">
-	import { Component, Prop, Vue } from 'vue-property-decorator'
+	import { Component, Vue } from 'vue-property-decorator'
 	import SideBar from '@/components/SideBar.vue'
 	import HeaderJumbotron from '@/components/HeaderJumbotron.vue'
 	import CardBase from '@/components/CardBase.vue'
-	import { vxm } from '@/store'
+	import { BloodType } from '@/types/BloodType'
 	import { oc } from 'ts-optchain'
 
-	@Component({
+  @Component({
 		components: { CardBase, HeaderJumbotron, SideBar }
 	})
 	export default class Profile extends Vue {
-		//get patient() {
-		//	//return vxm.patient.patients.find(() => true)
-		//}
-//
-		//get fullName() {
-		//	//return oc(this.patient).firstName('') + ' ' + oc(this.patient).lastName('')
-		//}
-//
-		//get birthDate() : string {
-		//	if (this.patient) {
-		//		// @ts-ignore
-		//		return (this.patient.birthDate as string).slice(0, 10)
-		//	}
-		//	return ''
-		//}
+    users: {
+      firstName: String,
+      lastName: String,
+      birthDate: String,
+      organDonor: Boolean,
+      bloodType: BloodType
+    }[] = [{
+      firstName: 'Ola',
+      lastName: 'Nordmann',
+      birthDate: '1814-05-17',
+      organDonor: true,
+      bloodType: BloodType.ABpositive
+    }]
+		get patient() {
+			return this.users.find(() => true)
+		}
+
+		get fullName() {
+			return oc(this.patient).firstName('') + ' ' + oc(this.patient).lastName('')
+		}
+
+		get birthDate() : string {
+			if (this.patient) {
+				// @ts-ignore
+				return (this.patient.birthDate as string).slice(0, 10)
+			}
+			return ''
+		}
 
 		mounted() {
-			//vxm.patient.fetchPatients()
+			// vxm.patient.fetchPatients()
 		}
 	}
 </script>

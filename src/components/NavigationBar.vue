@@ -99,7 +99,7 @@
 			{ icon: 'far fa-capsules', iconClass: 'icon', title: 'Prescriptions & Medications', navTo: '/prescriptions' },
 			{ icon: 'far fa-notes-medical', iconClass: 'icon', title: 'Diagnosis', navTo: '/diagnosis' },
 			{ icon: 'far fa-allergies', iconClass: 'icon', title: 'Allergies & Intolerances', navTo: '/allergies' },
-			{ icon: 'far fa-syringe', iconClass: 'icon', title: 'Vaccines', navTo: '/vaccines' },
+			{ icon: 'far fa-syringe', iconClass: 'icon', title: 'Vaccination', navTo: '/vaccines' },
 			{ icon: 'far fa-eye', iconClass: 'icon', title: 'Administer Accesses', navTo: '/administer' }
 		]
 		items2 = [

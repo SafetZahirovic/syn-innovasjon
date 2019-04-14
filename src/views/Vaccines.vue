@@ -1,8 +1,19 @@
+import { VaccinationStatus } from '../types/VaccinationStatus'
+import { VaccinationStatus } from '../types/VaccinationStatus'
+import { VaccinationStatus } from '../types/VaccinationStatus'
+import { VaccinationStatus } from '../types/VaccinationStatus'
+import { VaccinationStatus } from '../types/VaccinationStatus'
+import { VaccinationStatus } from '../types/VaccinationStatus'
+import { VaccinationStatus } from '../types/VaccinationStatus'
+import { VaccinationStatus } from '../types/VaccinationStatus'
+import { VaccinationStatus } from '../types/VaccinationStatus'
+import { VaccinationStatus } from '../types/VaccinationStatus'
+import { VaccinationStatus } from '../types/VaccinationStatus'
 <template>
 	<div>
-		<side-bar>Vaccines</side-bar>
+		<side-bar>Vaccination</side-bar>
 		<div class="header">
-			<h1 class="vaccines-headline"> Vaccines </h1>
+			<h1 class="vaccines-headline"> Vaccination </h1>
 			<v-icon class="header-icon ml-4 mb-3">fal fa-syringe</v-icon>
 		</div>
 		<div class="chips-container">
@@ -46,7 +57,7 @@
 				</div>
 			</card-base>
 
-			<h3 v-if="chipSelected === 0 || chipSelected === 2" class="ml-5 pl-3 mt-5 text-uppercase">Active Immunity Vaccines</h3>
+			<h3 v-if="chipSelected === 0 || chipSelected === 2" class="ml-5 pl-3 mt-5 text-uppercase">Active Immunity Vaccination</h3>
 			<card-base
 				v-if="chipSelected === 0 || chipSelected === 2"
 				v-for="vaccine in permanentVaccines"
@@ -68,7 +79,7 @@
 				</div>
 			</card-base>
 
-			<h3 v-if="chipSelected === 0 || chipSelected === 3" class="ml-5 pl-3 mt-5 text-uppercase">Renewable Vaccines</h3>
+			<h3 v-if="chipSelected === 0 || chipSelected === 3" class="ml-5 pl-3 mt-5 text-uppercase">Renewable Vaccination</h3>
 			<card-base
 				v-if="chipSelected === 0 || chipSelected === 3"
 				v-for="vaccine in renewableVaccines"
@@ -90,7 +101,7 @@
 				</div>
 			</card-base>
 
-			<h3 v-if="chipSelected === 0 || chipSelected === 4" class="ml-5 pl-3 mt-5 text-uppercase">Expired Vaccines</h3>
+			<h3 v-if="chipSelected === 0 || chipSelected === 4" class="ml-5 pl-3 mt-5 text-uppercase">Expired Vaccination</h3>
 			<card-base
 				v-if="chipSelected === 0 || chipSelected === 4"
 				v-for="vaccine in expiredVaccines"
@@ -117,13 +128,12 @@
 </template>
 
 <script lang="ts">
-	import { Component, Prop, Vue } from 'vue-property-decorator'
+	import { Component, Vue } from 'vue-property-decorator'
 	import SideBar from '@/components/SideBar.vue'
 	import CardBase from '@/components/CardBase.vue'
-	import { vxm } from '@/store'
-	import { oc } from 'ts-optchain'
+	import { VaccinationStatus } from '@/types/VaccinationStatus'
 
-	@Component({
+  @Component({
 		components: { SideBar, CardBase }
 	})
 
@@ -136,38 +146,109 @@
 			{ chipsText: 'Renewable', chipsIcon: 'far fa-sync' },
 			{ chipsText: 'Expired', chipsIcon: 'far fa-times' }
 		]
-		//get vaccineData() {
-		//	return vxm.vaccine.vaccines
-		//}
-//
-		//get onGoingVaccines() {
-		//		return vxm.vaccine.vaccines.filter(vaccine => {
-		//			return vaccine.status === 'Ongoing'
-		//		})
-		//}
-//
-		//get renewableVaccines() {
-		//	return vxm.vaccine.vaccines.filter(vaccine => {
-		//		return vaccine.status === 'Renewable'
-		//	})
-		//}
-//
-		//get permanentVaccines() {
-		//	return vxm.vaccine.vaccines.filter(vaccine => {
-		//		return vaccine.status === 'Permanent'
-		//	})
-		//}
-//
-		//get expiredVaccines() {
-		//	return vxm.vaccine.vaccines.filter(vaccine => {
-		//		return vaccine.status === 'Expired'
-		//	})
-		//}
-//
-		//mounted() {
-		//	vxm.vaccine.fetchVaccines('90ca942a-734e-417b-b021-1e5b4a77fd59')
-		//	console.log(this.onGoingVaccines)
-		//}
+
+    vaccines: {
+      patient: number;
+      vaccinationPlan: string[];
+      name: string;
+      description: string;
+      expiresAt: Date;
+      status: VaccinationStatus
+		}[] = [{
+      name: 'Flu Vaccine',
+      patient: 0,
+      status: VaccinationStatus.Renewable,
+      expiresAt: new Date(),
+      description: 'Vaccine for the Flu',
+      vaccinationPlan: [
+        '2018-02-02',
+        '2019-02-02'
+      ]
+		},
+      {
+        name: 'Pollen Allergy Vaccine',
+        patient: 0,
+        status: VaccinationStatus.Renewable,
+        expiresAt: new Date(),
+        description: 'Vaccine against different Pollen Allergies',
+        vaccinationPlan: [
+          '2017-02-01',
+          '2019-06-20'
+        ]
+      },
+      {
+        name: 'Polio Vaccine',
+        patient: 0,
+        status: VaccinationStatus.Permanent,
+        expiresAt: new Date(),
+        description: 'Vaccine for against Polio',
+        vaccinationPlan: [
+          '2017-02-01',
+        ]
+      },
+      {
+        name: 'Small Pox Vaccine',
+        patient: 0,
+        status: VaccinationStatus.Permanent,
+        expiresAt: new Date(),
+        description: 'Vaccine against small pox',
+        vaccinationPlan: [
+          '2017-02-01',
+        ]
+      },
+      {
+        name: 'Gradasil 9',
+        patient: 0,
+        status: VaccinationStatus.Ongoing,
+        expiresAt: new Date(),
+        description: 'HPV Vaccine',
+        vaccinationPlan: [
+          '2019-04-01',
+          '2019-06-01',
+          '2019-08-01',
+        ]
+      },
+      {
+        name: 'HBV Vaccine',
+        patient: 0,
+        status: VaccinationStatus.Expired,
+        expiresAt: new Date(),
+        description: 'Hepatitis B Virus Vaccine',
+        vaccinationPlan: [
+          '2017-04-01',
+          '2019-01-01',
+        ]
+      },
+    ]
+    get onGoingVaccines() {
+      return this.vaccines.filter(vaccine => {
+        return vaccine.status === VaccinationStatus.Ongoing
+       })
+    }
+    get vaccineData() {
+      return this.vaccines
+    }
+
+    get renewableVaccines() {
+      return this.vaccines.filter(vaccine => {
+        return vaccine.status === VaccinationStatus.Renewable
+      })
+    }
+
+    get permanentVaccines() {
+      return this.vaccines.filter(vaccine => {
+        return vaccine.status === VaccinationStatus.Permanent
+      })
+    }
+
+    get expiredVaccines() {
+      return this.vaccines.filter(vaccine => {
+        return vaccine.status === VaccinationStatus.Expired
+      })
+    }
+
+    mounted() {
+    }
 
 		selectChip(index: number) {
 			console.log(index)

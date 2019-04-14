@@ -7,14 +7,13 @@
 				<AdministerEditCard
 					v-if="changeAccessFirst"
 					:fk-data="fkData"
-					:v-slot="v-slot"
 					nameOfDoctor="Ragnar Andreassen"
 					doctorsOffice="Lillegrensen Legesenter"
 					doctorType="Regular Practitioner"></AdministerEditCard>
 				<AdministerCard
 					v-if="!changeAccessFirst"
 					:fk-data="fkData"
-					:v-slot="v-slot"
+					:hideDetails="this.changeAccessFirst"
 					nameOfDoctor="Ragnar Andreassen"
 					doctorsOffice="Lillegrensen Legesenter"
 					doctorType="Regular Practitioner"/>
@@ -27,14 +26,13 @@
 				<AdministerEditCard
 					v-if="changeAccessSecond"
 					:fk-data="fkData"
-					:v-slot="v-slot"
 					nameOfDoctor="Tobias Olsen"
 					doctorsOffice="Oslo Legevakt"
 					doctorType="Gynecologist"></AdministerEditCard>
 				<AdministerCard
 					v-if="!changeAccessSecond"
 					:fk-data="fkData"
-					:v-slot="v-slot"
+					:hideDetails="this.changeAccessSecond"
 					nameOfDoctor="Tobias Olsen"
 					doctorsOffice="Oslo Legevakt"
 					doctorType="Gynecologist"/>

@@ -19,7 +19,7 @@
 			<h4>Has access to:</h4>
 			<VFlex v-for="(item, i) in fkData" :key="i" xs12>
 				<VCheckbox
-					hide-details="true"
+					hide-details
 					class="checkbox"
 					:label="item"></VCheckbox>
 			</VFlex>
@@ -39,6 +39,7 @@
 		@Prop() fkData !: string[]
 		@Prop() doctorsOffice !: string
 		@Prop() doctorType !: string
+    @Prop() hideDetails !: boolean
 	}
 </script>
 <style lang="sass" scoped>

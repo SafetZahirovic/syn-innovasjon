@@ -59,7 +59,7 @@
 				linkTo: '/allergies'
 			},
 			{
-				cardName: 'Vaccines',
+				cardName: 'Vaccination',
 				cardIcon: 'fal fa-syringe',
 				linkTo: '/vaccines'
 			},
