@@ -34,26 +34,43 @@ import { BloodType } from '../types/BloodType'
 				</VLayout>
 				<VDivider/>
 				<VLayout pt-4>
-					<VFlex>
-						<div class="profile__emergency">
-							<div class="profile__icon">
+					<VFlex >
+						<VFlex class="profile__emergency">
+							<VFlex xs1 style="margin-right: 5px" class="profile__icon">
 								<VIcon>far fa-address-book</VIcon>
-							</div>
-							<div>
+							</VFlex>
+							<VFlex xs10>
 								<h4>Emergency Contacts</h4>
-								<p>Name of someone</p>
-								<p>0047 953 77 123</p>
-							</div>
-							<VIcon class="end-icon"><!--fas fa-pen--></VIcon>
-						</div>
-						<!--<VCardActions class="justify-center">
+								<p v-if="!editMode">{{ users[0].emergencyContact.name }}</p>
+								<p v-if="!editMode">{{ users[0].emergencyContact.number }}</p>
+								<VTextField
+									v-if="editMode"
+									v-model="users[0].emergencyContact.name"
+									class="pa0 ma0"
+									hide-details
+									label="Edit name"></VTextField>
+								<VTextField
+									v-if="editMode"
+									v-model="users[0].emergencyContact.number"
+									hide-details
+									class="pa0 ma0"
+									label="Edit phone number"></VTextField>
+
+							</VFlex>
+							<VFlex xs1>
+								<VIcon @click="setEditMode" class="end-icon">fas fa-pen</VIcon>
+							</VFlex>
+
+						</VFlex>
+						<VCardActions v-if="editMode" @click="setEditMode" class="justify-center">
 							<VBtn flat class="profile__emergency__btn">
 								<VIcon class="mx-2">fas fa-check</VIcon>
 								<h6 class="neon-green-txt">Save changes</h6>
 							</VBtn>
-						</VCardActions>-->
+						</VCardActions>
 					</VFlex>
 				</VLayout>
+
 			</CardBase>
 		</div>
 	</VContainer>
@@ -76,14 +93,22 @@ import { BloodType } from '../types/BloodType'
       lastName: String,
       birthDate: String,
       organDonor: Boolean,
-      bloodType: BloodType
+      bloodType: BloodType,
+      emergencyContact: {name: string, number: string}
     }[] = [{
       firstName: 'Ola',
       lastName: 'Nordmann',
       birthDate: '1814-05-17',
       organDonor: true,
-      bloodType: BloodType.ABpositive
+      bloodType: BloodType.ABpositive,
+      emergencyContact: {
+        name: 'Per Olav',
+        number: '56 77 21 99'
+      }
     }]
+
+    editMode = false
+
 		get patient() {
 			return this.users.find(() => true)
 		}
@@ -103,6 +128,10 @@ import { BloodType } from '../types/BloodType'
 		mounted() {
 			// vxm.patient.fetchPatients()
 		}
+    setEditMode() {
+      this.editMode = !this.editMode
+      console.log(this.editMode)
+    }
 	}
 </script>
 

@@ -9,16 +9,16 @@
 				<VIcon>fas fa-user-md</VIcon>
 			</VFlex>
 			<VFlex xs11>
-				<h4>{{ nameOfDoctor }}</h4>
-				<p><span class="italic-txt">{{ doctorsOffice }}</span></p>
-				<p class="green-txt">{{ doctorType }}</p>
+				<h4>{{ doctor.nameOfDoctor }}</h4>
+				<p><span class="italic-txt">{{ doctor.doctorsOffice }}</span></p>
+				<p class="green-txt">{{ doctor.doctorType }}</p>
 			</VFlex>
 		</VLayout>
 		<VDivider/>
 		<VLayout pt-2 column>
 			<h4>Has access to:
-				<span class="administer__access-text" v-for="(item, i) in fkData" :key="i">
-					{{ `${item},`}}
+				<span class="administer__access-text" v-for="(item, i) in doctor.hasAccessTo" :key="i">
+					{{ `${item.checked ? item.name + "," : ''}`}}
 				</span>
 			</h4>
 		</VLayout>
@@ -27,13 +27,12 @@
 
 <script lang="ts">
 	import { Component, Prop, Vue } from 'vue-property-decorator'
+	import { Doctor } from '@/types/Doctor'
 
 	@Component
 	export default class AdministerCard extends Vue {
-			@Prop() nameOfDoctor !: string
-			@Prop() fkData !: string[]
-			@Prop() doctorsOffice !: string
-			@Prop() doctorType !: string
+    @Prop() doctor !: Doctor
+    @Prop() hide !: boolean
 	}
 </script>
 

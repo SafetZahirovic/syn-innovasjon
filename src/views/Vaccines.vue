@@ -1,14 +1,3 @@
-import { VaccinationStatus } from '../types/VaccinationStatus'
-import { VaccinationStatus } from '../types/VaccinationStatus'
-import { VaccinationStatus } from '../types/VaccinationStatus'
-import { VaccinationStatus } from '../types/VaccinationStatus'
-import { VaccinationStatus } from '../types/VaccinationStatus'
-import { VaccinationStatus } from '../types/VaccinationStatus'
-import { VaccinationStatus } from '../types/VaccinationStatus'
-import { VaccinationStatus } from '../types/VaccinationStatus'
-import { VaccinationStatus } from '../types/VaccinationStatus'
-import { VaccinationStatus } from '../types/VaccinationStatus'
-import { VaccinationStatus } from '../types/VaccinationStatus'
 <template>
 	<div>
 		<side-bar>Vaccination</side-bar>
@@ -51,9 +40,9 @@ import { VaccinationStatus } from '../types/VaccinationStatus'
 					class="mb-3 mt-3"
 				></v-divider>
 				<div>
-					<p class="mb-1"><span class="bolded-txt">First vaccine should be taken: </span> {{ vaccine.vaccinationPlan[0] }}</p>
-					<p class="mb-1"><span class="bolded-txt">Second vaccine should be taken after: </span> <br> {{ vaccine.vaccinationPlan[0] }}</p>
-					<p v-if="vaccine.vaccinationPlan.length > 2" class="mb-1"><span class="bolded-txt">First vaccine should be taken: </span> <br> Six months after the first </p>
+					<p class="mb-1"><span class="bolded-txt">First vaccine was taken: </span> {{ vaccine.vaccinationPlan[0] }}</p>
+					<p class="mb-1"><span class="bolded-txt">Second vaccine should be taken: </span> <br> Three months after the first</p>
+					<p v-if="vaccine.vaccinationPlan.length > 2" class="mb-1"><span class="bolded-txt">Third vaccine should be taken: </span> <br> Six months after the first </p>
 				</div>
 			</card-base>
 
@@ -62,7 +51,7 @@ import { VaccinationStatus } from '../types/VaccinationStatus'
 				v-if="chipSelected === 0 || chipSelected === 2"
 				v-for="vaccine in permanentVaccines"
 				:key="vaccine.name"
-				class="card mr-3 mt-2"
+				class="card mr-3 mt-4"
 			>
 				<div class="subheader-card">
 					<div>
@@ -84,7 +73,7 @@ import { VaccinationStatus } from '../types/VaccinationStatus'
 				v-if="chipSelected === 0 || chipSelected === 3"
 				v-for="vaccine in renewableVaccines"
 				:key="vaccine.name"
-				class="card mr-3 mt-2">
+				class="card mr-3 mt-4">
 				<div class="subheader-card">
 					<div>
 						<h4 class="mb-1"> {{ vaccine.name }}</h4>
@@ -106,7 +95,7 @@ import { VaccinationStatus } from '../types/VaccinationStatus'
 				v-if="chipSelected === 0 || chipSelected === 4"
 				v-for="vaccine in expiredVaccines"
 				:key="vaccine.name"
-				class="card mr-3 mt-2">
+				class="card mr-3 mt-4">
 				<div class="subheader-card">
 					<div>
 						<h4 class="mb-1"> {{ vaccine.name }}</h4>
@@ -197,7 +186,7 @@ import { VaccinationStatus } from '../types/VaccinationStatus'
         ]
       },
       {
-        name: 'Gradasil 9',
+        name: 'Gardasil 9',
         patient: 0,
         status: VaccinationStatus.Ongoing,
         expiresAt: new Date(),

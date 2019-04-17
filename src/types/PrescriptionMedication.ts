@@ -3,8 +3,8 @@ export interface PrescriptionMedication {
 	name: string
 	description: string
 	isMedicationStrong: boolean
-	issueDate: Date
-	expirationDate: Date
+	issueDate: Date | string
+	expirationDate: Date | string
 	dossageDirection: string
 	active: boolean
 }

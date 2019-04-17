@@ -11,9 +11,11 @@
   "dependencies": {
     "core-js": "^2.6.5",
     "express": "^4.16.4",
+    "firebase-tools": "^6.6.0",
     "ts-optchain": "latest",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
+    "vue-i18n": "^8.10.0",
     "vue-property-decorator": "^8.1.0",
     "vue-router": "^3.0.3",
     "vuetify": "^1.5.5",

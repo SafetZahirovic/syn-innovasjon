@@ -3,28 +3,31 @@
 		<SideBar>Prescriptions & Medications</SideBar>
 		<HeaderJumbotron title="Prescriptions & Medications" icon="fal fa-pills" />
 		<div class="card-container view-container">
-			<CardBase>
+			<CardBase class="mt-4" v-for='item in this.sortedByActive' v-bind:key="item.id">
 				<VLayout pb-3>
 					<VFlex xs8>
 						<VCardTitle class="card-title">
 							<!--<h4>{{ this.prescriptionMedication.name }}</h4>-->
-							<h4>Microgynon</h4>
+							<h4>{{ item.values.name }}</h4>
 						</VCardTitle>
 						<!--<p class="italic-txt">{{ this.prescriptionMedication.description }}</p>-->
-						<p class="italic-txt">Birth control</p>
+						<p class="italic-txt">{{ item.values.description }}</p>
 					</VFlex>
 					<VFlex xs4 text-xs-center>
 						<!--<div :style="[this.prescriptionMedication.active ? {background:red} : {background:grey}]" class="prescription__status mb-2">{{ this.prescriptionMedication.active ? 'active' : 'expired' }}</div>-->
-						<div :class="{ 'background-neon': true}" class="prescription__status mb-2">
-							<h6>{{ false ? 'active' : 'expired' }}</h6>
+						<div :class="[item.values.active && {'background-neon':true}]" class="prescription__status mb-2">
+							<h6>{{ item.values.active ? 'active' : 'expired' }}</h6>
 						</div>
 						<div class="d-flex align-center">
 							<!--<h6 class="pr-1">{{ this.prescriptionMedication.isMedicationStrong && 'strong'}}</h6>-->
-							<h6 class="pr-1">{{ true && 'strong'}}</h6>
-							<VAvatar class="warning-strong" color="secondary" pa-0>
+							<h6 class="pr-1">{{ item.values.isMedicationStrong ? 'strong' : ""}}</h6>
+							<VAvatar
+								class="warning-strong"
+								v-bind:style="item.values.isMedicationStrong ? {'display':'block'} : {'display':'none'}"
+								color="secondary"
+								pa-0>
 								<!--<VIcon :style="[this.prescriptionMedication.isMedicationStrong ? {display:block} : {display:none}]" small color="error">fas fa-exclamation-triangle</VIcon>-->
 								<VIcon
-									:style="[true ? {display:block} : {display:none}]"
 									small
 									color="error"
 									class="warning-icon">fas fa-exclamation-triangle</VIcon>
@@ -38,9 +41,9 @@
 						<!--<p><span class="bolded-txt">Issue date: </span>{{ this.prescriptionMedication.issueDate }}</p>
 						<p><span class="bolded-txt">Expiration date: </span>{{ this.prescriptionMedication.expirationDate }}</p>
 						<p><span class="bolded-txt">Dossage & Directions: </span>{{ this.prescriptionMedication.dossageDirection }}</p>-->
-						<p><span class="bolded-txt">Issue date: </span>20.05.1990</p>
-						<p><span class="bolded-txt">Expiration date: </span>Never</p>
-						<p><span class="bolded-txt">Dossage & Directions: </span>Take 2 pills every morning</p>
+						<p><span class="bolded-txt">Issue date: </span>{{ item.values.issueDate }}</p>
+						<p><span class="bolded-txt">Active until: </span>{{ item.values.expirationDate }}</p>
+						<p><span class="bolded-txt">Dossage & Directions: </span>{{ item.values.dossageDirection }}</p>
 					</VFlex>
 				</VLayout>
 			</CardBase>
@@ -54,13 +57,76 @@
 	import HeaderJumbotron from '@/components/HeaderJumbotron.vue'
 	import CardBase from '@/components/CardBase.vue'
 	import { PrescriptionMedication } from '@/types/PrescriptionMedication'
-
 	@Component({
 		components: { CardBase, HeaderJumbotron, SideBar }
 	})
 	export default class PrescriptionsMedications extends Vue {
 		@Prop() prescriptionMedication !: PrescriptionMedication
+
+    prescriptionMedicationDB: PMValues[] = [
+      {
+        values: {
+        id: '0',
+        name: 'Microgynon',
+        description: 'Birth control',
+        isMedicationStrong: false,
+        issueDate: '2008-10-29',
+        expirationDate: 'Never',
+        dossageDirection: 'Take 2 pills every morning',
+        active: true
+      }
+    },
+      {
+        values: {
+          id: '1',
+          name: 'Paralgin forte',
+          description: 'Strong painkillers',
+          isMedicationStrong: true,
+          issueDate: '2008-05-15',
+          expirationDate: 'Never',
+          dossageDirection: 'Take 1 pill after eating',
+          active: true
+        },
+      },
+      {
+        values: {
+          id: '2',
+          name: 'Apo-Amoxi',
+          description: 'Antibiotic',
+          isMedicationStrong: false,
+          issueDate: '2009-01-02',
+          expirationDate: '2009-02-02',
+          dossageDirection: 'Take 1 pill after eating',
+          active: false
+        },
+      },
+      {
+        values: {
+          id: '3',
+          name: 'Hydrocodone',
+          description: 'Opioid',
+          isMedicationStrong: true,
+          issueDate: '2004-11-18',
+          expirationDate: 'Never',
+          dossageDirection: '1 tablespoonful every 4-6 hours',
+          active: false
+        },
+      }
+    ]
+
+    get sortedByActive() {
+      return this.prescriptionMedicationDB.sort(function(x, y) {
+        return (x.values.active === y.values.active) ? 0 : x.values.active ? -1 : 1
+      })
+    }
+    mounted() {
+    }
 	}
+
+  interface PMValues{
+    values: PrescriptionMedication
+  }
+
 </script>
 
 <style lang="sass" scoped>
