@@ -88,7 +88,7 @@ import { Accesses } from '../types/Accesses'
                   checked: false
                 },
                 {
-                  name: 'Infarkt',
+                  name: 'Hjerneslag',
                   checked: false
                 },
                 {
@@ -112,7 +112,7 @@ import { Accesses } from '../types/Accesses'
                   checked: false
                 },
                 {
-                  name: 'Laktoseintolerant',
+                  name: 'Laktoseintoleranse',
                   checked: false
                 },
                 {
@@ -121,7 +121,7 @@ import { Accesses } from '../types/Accesses'
                 },
               ]
             },
-            { name: 'Vaksineer',
+            { name: 'Vaksiner',
               checked: false,
               expanded: false,
               indeterminate: false,
@@ -153,7 +153,7 @@ import { Accesses } from '../types/Accesses'
           id: '1',
           nameOfDoctor: 'Tobias Olsen',
           doctorsOffice: 'Oslo Legevakt',
-          doctorType: 'Fysioterapist',
+          doctorType: 'Fysioterapeut',
           hasAccessTo: [
             {
               name: 'Resept og medisiner',
@@ -190,7 +190,7 @@ import { Accesses } from '../types/Accesses'
                   checked: false
                 },
                 {
-                  name: 'Infarkt',
+                  name: 'Hjerneslag',
                   checked: false
                 },
                 {
@@ -214,7 +214,7 @@ import { Accesses } from '../types/Accesses'
                   checked: false
                 },
                 {
-                  name: 'Pollen Allergi Vaksine',
+                  name: 'Pollenallergi Vaksine',
                   checked: false
                 },
                 {
@@ -222,7 +222,7 @@ import { Accesses } from '../types/Accesses'
                   checked: false
                 },
                 {
-                  name: 'Småkopp Vaksine',
+                  name: 'Småkopper Vaksine',
                   checked: false
                 },
                 {
@@ -246,11 +246,11 @@ import { Accesses } from '../types/Accesses'
                   checked: false
                 },
                 {
-                  name: 'Pollen Allergi Vaksine',
+                  name: 'Pollenallergi Vaksine',
                   checked: false
                 },
                 {
-                  name: 'Polio Vaksinee',
+                  name: 'Polio Vaksine',
                   checked: false
                 },
                 {

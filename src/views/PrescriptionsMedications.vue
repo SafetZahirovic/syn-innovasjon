@@ -16,11 +16,11 @@
 					<VFlex xs4 text-xs-center>
 						<!--<div :style="[this.prescriptionMedication.active ? {background:red} : {background:grey}]" class="prescription__status mb-2">{{ this.prescriptionMedication.active ? 'active' : 'expired' }}</div>-->
 						<div :class="[item.values.active && {'background-neon':true}]" class="prescription__status mb-2">
-							<h6>{{ item.values.active ? 'active' : 'expired' }}</h6>
+							<h6>{{ item.values.active ? 'Aktive' : 'Utløpt' }}</h6>
 						</div>
 						<div class="d-flex align-center">
 							<!--<h6 class="pr-1">{{ this.prescriptionMedication.isMedicationStrong && 'strong'}}</h6>-->
-							<h6 class="pr-1">{{ item.values.isMedicationStrong ? 'strong' : ""}}</h6>
+							<h6 class="pr-1">{{ item.values.isMedicationStrong ? 'Sterke' : ""}}</h6>
 							<VAvatar
 								size="32"
 								class="warning-strong"
@@ -43,7 +43,7 @@
 						<p><span class="bolded-txt">Expiration date: </span>{{ this.prescriptionMedication.expirationDate }}</p>
 						<p><span class="bolded-txt">Dossage & Directions: </span>{{ this.prescriptionMedication.dossageDirection }}</p>-->
 						<p><span class="bolded-txt">Utgivelsesdato: </span>{{ item.values.issueDate }}</p>
-						<p><span class="bolded-txt">Aktiv til: </span>{{ item.values.expirationDate }}</p>
+						<p><span class="bolded-txt">Utløpsdato: </span>{{ item.values.expirationDate }}</p>
 						<p><span class="bolded-txt">Dosering og beskrivelse: </span>{{ item.values.dossageDirection }}</p>
 					</VFlex>
 				</VLayout>
@@ -73,19 +73,19 @@
         isMedicationStrong: false,
         issueDate: '2008-10-29',
         expirationDate: 'Aldri',
-        dossageDirection: 'Ta 2 piller hver morgen',
+        dossageDirection: 'To piller hver morgen',
         active: true
       }
     },
       {
         values: {
           id: '1',
-          name: 'Paralgin forte',
-          description: 'Sterke smertestillende midler',
+          name: 'Paralgin Forte',
+          description: 'Sterke smertestillende',
           isMedicationStrong: true,
           issueDate: '2008-05-15',
           expirationDate: 'Aldri',
-          dossageDirection: 'Ta 1 pille etter å ha spist',
+          dossageDirection: 'En pille etter dagens første måltid',
           active: true
         },
       },
@@ -93,11 +93,11 @@
         values: {
           id: '2',
           name: 'Apo-Amoxi',
-          description: 'Antibiotic',
+          description: 'Antibiotika',
           isMedicationStrong: false,
           issueDate: '2009-01-02',
           expirationDate: '2009-02-02',
-          dossageDirection: 'Antibiotika',
+          dossageDirection: 'To piller om dagen med minst seks timer mellom hver dosering',
           active: false
         },
       },
@@ -109,7 +109,7 @@
           isMedicationStrong: true,
           issueDate: '2004-11-18',
           expirationDate: 'Aldri',
-          dossageDirection: '1 spiseskje hver 4-6 timer',
+          dossageDirection: 'Tre spiseskjeer om dagen med minst tre timer mellom hver dosering',
           active: false
         },
       }

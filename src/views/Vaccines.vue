@@ -18,7 +18,7 @@
 			</v-chip>
 		</div>
 		<div class="card-wrapper">
-			<h3 v-if="chipSelected === 0 || chipSelected === 1" class="ml-5 pl-3 mt-4 text-uppercase">Pågående Vaksinasjoner</h3>
+			<h3 v-if="chipSelected === 0 || chipSelected === 1" class="ml-5 pl-3 mt-4 text-uppercase">Fornybare Vaksiner</h3>
 			<card-base
 				v-if="chipSelected === 0 || chipSelected === 1"
 				v-for="vaccine in onGoingVaccines"
@@ -41,12 +41,12 @@
 				></v-divider>
 				<div>
 					<p class="mb-1"><span class="bolded-txt">Første vaksine ble tatt: </span> {{ vaccine.vaccinationPlan[0] }}</p>
-					<p class="mb-1"><span class="bolded-txt">Andre vaksiner bør tas : </span> <br> Tre måneder etter den første</p>
-					<p v-if="vaccine.vaccinationPlan.length > 2" class="mb-1"><span class="bolded-txt">Tredje vaksine bør tas : </span> <br> Seks måneder etter den første </p>
+					<p class="mb-1"><span class="bolded-txt">Andre vaksiner bør tas: </span> <br> Tre måneder etter den første</p>
+					<p v-if="vaccine.vaccinationPlan.length > 2" class="mb-1"><span class="bolded-txt">Tredje vaksine bør tas: </span> <br> Seks måneder etter den første </p>
 				</div>
 			</card-base>
 
-			<h3 v-if="chipSelected === 0 || chipSelected === 2" class="ml-5 pl-3 mt-5 text-uppercase">Aktiv immunitetsvaksinasjon</h3>
+			<h3 v-if="chipSelected === 0 || chipSelected === 2" class="ml-5 pl-3 mt-5 text-uppercase">Permanente vaksiner</h3>
 			<card-base
 				v-if="chipSelected === 0 || chipSelected === 2"
 				v-for="vaccine in permanentVaccines"
@@ -68,7 +68,7 @@
 				</div>
 			</card-base>
 
-			<h3 v-if="chipSelected === 0 || chipSelected === 3" class="ml-5 pl-3 mt-5 text-uppercase">Fornybar Vaksinasjon</h3>
+			<h3 v-if="chipSelected === 0 || chipSelected === 3" class="ml-5 pl-3 mt-5 text-uppercase">Fornybare Vaksiner</h3>
 			<card-base
 				v-if="chipSelected === 0 || chipSelected === 3"
 				v-for="vaccine in renewableVaccines"
@@ -90,7 +90,7 @@
 				</div>
 			</card-base>
 
-			<h3 v-if="chipSelected === 0 || chipSelected === 4" class="ml-5 pl-3 mt-5 text-uppercase">Utløpt Vaksinasjon</h3>
+			<h3 v-if="chipSelected === 0 || chipSelected === 4" class="ml-5 pl-3 mt-5 text-uppercase">Utløpte Vaksiner</h3>
 			<card-base
 				v-if="chipSelected === 0 || chipSelected === 4"
 				v-for="vaccine in expiredVaccines"
@@ -129,11 +129,11 @@
 	export default class Vaccines extends Vue {
 		chipSelected = 0
 		chipsInformation = [
-			{ chipsText: 'All', chipsIcon: 'far fa-check-double' },
-			{ chipsText: 'Ongoing', chipsIcon: 'far fa-spinner' },
-			{ chipsText: 'Permanent', chipsIcon: 'far fa-infinity' },
-			{ chipsText: 'Renewable', chipsIcon: 'far fa-sync' },
-			{ chipsText: 'Expired', chipsIcon: 'far fa-times' }
+			{ chipsText: 'Alle', chipsIcon: 'far fa-check-double' },
+			{ chipsText: 'Pågående', chipsIcon: 'far fa-spinner' },
+			{ chipsText: 'Permanente', chipsIcon: 'far fa-infinity' },
+			{ chipsText: 'Fornybare', chipsIcon: 'far fa-sync' },
+			{ chipsText: 'Utløpte', chipsIcon: 'far fa-times' }
 		]
 
     vaccines: {
@@ -148,14 +148,14 @@
       patient: 0,
       status: VaccinationStatus.Renewable,
       expiresAt: new Date(),
-      description: 'Vaccine mot infuense',
+      description: 'Vaksine mot infuensa',
       vaccinationPlan: [
         '2018-02-02',
         '2019-02-02'
       ]
 		},
       {
-        name: 'Pollen Allergi Vaksine',
+        name: 'Pollenallergi Vaksine',
         patient: 0,
         status: VaccinationStatus.Renewable,
         expiresAt: new Date(),

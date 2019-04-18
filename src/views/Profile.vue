@@ -23,11 +23,11 @@ import { BloodType } from '../types/BloodType'
 						</div>
 						<div class="d-inline-flex">
 							<div class="profile__icon"><VIcon>far fa-tint</VIcon></div>
-							<h4>Blod type: <span class="normal-txt">O-positive</span></h4>
+							<h4>Blodtype: <span class="normal-txt">O-positive</span></h4>
 						</div>
 						<div class="profile__donor">
 							<div class="profile__icon"><VIcon>far fa-hand-holding-heart</VIcon></div>
-							<h4>Organ Donor: </h4>
+							<h4>Organdonor: </h4>
 							<VSwitch class="mt-0 pt-0 profile__donor__switch"></VSwitch>
 						</div>
 					</VFlex>
@@ -40,7 +40,7 @@ import { BloodType } from '../types/BloodType'
 								<VIcon>far fa-address-book</VIcon>
 							</VFlex>
 							<VFlex xs10>
-								<h4>Emergency Contacts</h4>
+								<h4>Nødkontakter</h4>
 								<p v-if="!editMode">{{ users[0].emergencyContact.name }}</p>
 								<p v-if="!editMode">{{ users[0].emergencyContact.number }}</p>
 								<VTextField
@@ -96,8 +96,8 @@ import { BloodType } from '../types/BloodType'
       bloodType: BloodType,
       emergencyContact: {name: string, number: string}
     }[] = [{
-      firstName: 'Ola',
-      lastName: 'Nordmann',
+      firstName: 'Frank',
+      lastName: 'Frankesen',
       birthDate: '1814-05-17',
       organDonor: true,
       bloodType: BloodType.ABpositive,

@@ -16,7 +16,7 @@
 		</VLayout>
 		<VDivider/>
 		<VLayout pt-2 column>
-			<h4>Has access to:
+			<h4>Har tilgang til:
 				<span class="administer__access-text" v-for="(item, i) in doctor.hasAccessTo" :key="i">
 					{{ `${item.checked ? item.name + "," : ''}`}}
 				</span>

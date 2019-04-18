@@ -20,7 +20,7 @@
 					</VLayout>
 					<VLayout pt-3>
 						<VFlex xs12>
-							<p><span class="bolded-txt">Dato for diagnose: </span>{{ diagnose.dateOfDiagnosis }}</p>
+							<p><span class="bolded-txt">Dato diagnosert: </span>{{ diagnose.dateOfDiagnosis }}</p>
 							<p><span class="bolded-txt">Beskrivelse: </span>{{ diagnose.description }}</p>
 						</VFlex>
 					</VLayout>
@@ -36,9 +36,9 @@
 	import HeaderJumbotron from '@/components/HeaderJumbotron.vue'
 	import CardBase from '@/components/CardBase.vue'
 	enum DiagnosisCategory {
-		Heart = 'Heart',
-		Brain = 'Brain',
-		Intestines = 'Intestines'
+		Heart = 'Hjerte',
+		Brain = 'Hjerne',
+		Intestines = 'Tarm'
 	}
 
 	@Component({
@@ -47,31 +47,31 @@
 	export default class Diagnosis extends Vue {
 		diagnoses = [{
 				id: 0,
-				name: 'Koronararteriesykdom(KAD)',
+				name: 'Koronarsyndrom (KAD)',
 				category: DiagnosisCategory.Heart,
 				dateOfDiagnosis: '14.03.1995',
-				description: 'Innsnevring av blodkar som gir blod til hjertet'
+				description: 'Innsnevring av sentrale blodkar som fører blod til hjertet'
 			},
 			{
 				id: 1,
-				name: 'Infarkt',
+				name: 'Hjerneslag',
 				category: DiagnosisCategory.Brain,
 				dateOfDiagnosis: '20.02.1992',
-				description: 'Blokkering eller lekkasje av hjernearterier'
+				description: 'Blokkering eller lekkasje i hjernearterier'
 			},
 			{
 				id: 2,
 				name: 'Inflammatorisk tarmsykdom',
 				category: DiagnosisCategory.Intestines,
 				dateOfDiagnosis: '05.10.1997',
-				description: 'Lidelser som involverer kronisk betennelse i fordøyelseskanalen din.'
+				description: 'Kronisk betennelse i fordøyelseskanal'
 			},
 			{
 				id: 3,
-				name: 'Dehydrering på grunn av diarrésykdommer',
+				name: 'Dehydrering påført av diarré',
 				category: DiagnosisCategory.Intestines,
 				dateOfDiagnosis: '18.07.2002',
-				description: 'Hvis diaréen varer mer enn noen dager, mister kroppen din for mye vann og salt. Dette fører til dehydrering, noe som kan føre til døden.'
+				description: 'Kroppen mister hurtig væske og salt når man har diarré. Viktig med hyppig inntak av vann og salt mat'
 			}]
 
 		get diagnosisCat() {

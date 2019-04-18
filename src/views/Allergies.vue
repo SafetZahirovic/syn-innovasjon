@@ -25,7 +25,7 @@
 				<VDivider></VDivider>
 				<VLayout pt-3>
 					<VFlex xs12>
-						<p><span class='bolded-txt'>Registrert dato: </span>{{ allergy.detected }}</p>
+						<p><span class='bolded-txt'>Dato påvist: </span>{{ allergy.detected }}</p>
 						<p><span class='bolded-txt'>Sist testet: </span>{{ allergy.lastTested }}</p>
 						<p><span class='bolded-txt'>Reaksjon: </span>{{ allergy.reaction }}</p>
 					</VFlex>
@@ -50,30 +50,30 @@
     allergies = {
       0: {
         patientId: '0',
-        name: 'Laktoseintolerant',
-        allergicTo: 'Melk',
+        name: 'Laktoseintoleranse',
+        allergicTo: 'Allergisk mot melkeprodukter',
         allergySeverity: 'SevereAllergy',
         detected: '2019-02-29',
         lastTested: '2019-03-29',
-        reaction: 'Dårlig magesmerter',
+        reaction: 'Kraftige magesmerter',
       },
       1: {
         patientId: '0',
         name: 'Sitrus Allergi',
-        allergicTo: 'Allergisk for alle sitrus frukt',
+        allergicTo: 'Allergisk mot sitrusfrukt',
         allergySeverity: 'MildAllergy',
         detected: '2019-02-29',
         lastTested: '2019-03-29',
-        reaction: 'Klø i halsen',
+        reaction: 'Kløe i halsen',
       },
       2: {
         patientId: '0',
-        name: 'Pels Allergi',
-        allergicTo: 'Allergisk for alle typer pels',
+        name: 'Pelsallergi',
+        allergicTo: 'Allergisk mot alle pelstyper',
         allergySeverity: 'ModerateAllergy',
         detected: '2019-02-29',
         lastTested: '2019-03-29',
-        reaction: 'Kløende hud og nysing',
+        reaction: 'Kløe i huden og nysing',
       }
     }
 
