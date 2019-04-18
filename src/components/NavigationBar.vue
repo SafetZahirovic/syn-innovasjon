@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div style="z-index: 99999999">
 		<v-toolbar
 			flat
 			app
@@ -96,7 +96,7 @@
 		drawer = null
 
 		menuItemsOne = [
-			{ icon: 'far fa-capsules', iconClass: 'icon', title: 'Resept og medisiner', navTo: '/prescriptions' },
+			{ icon: 'far fa-capsules', iconClass: 'icon', title: 'Resepter og medisiner', navTo: '/prescriptions' },
 			{ icon: 'far fa-notes-medical', iconClass: 'icon', title: 'Diagnoser', navTo: '/diagnosis' },
 			{ icon: 'far fa-allergies', iconClass: 'icon', title: 'Allergier og intoleranser', navTo: '/allergies' },
 			{ icon: 'far fa-syringe', iconClass: 'icon', title: 'Vaksinasjoner', navTo: '/vaccines' },
@@ -104,7 +104,7 @@
 		]
 		items2 = [
 			{ icon: 'far fa-user-alt', iconClass: 'icon', title: 'Min Profil', navTo: '/profile' },
-			{ icon: 'far fa-sign-out-alt', iconClass: 'icon', title: 'Log ut', navTo: '/' },
+			{ icon: 'far fa-sign-out-alt', iconClass: 'icon', title: 'Logg ut', navTo: '/' },
 			{ icon: 'far fa-home', iconClass: 'icon', title: 'Hjem', navTo: '/' }
 		]
 	}

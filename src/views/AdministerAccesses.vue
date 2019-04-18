@@ -16,8 +16,8 @@ import { Accesses } from '../types/Accesses'
 					:doctor="doctors.values"
 					:hide="doctors.values.hide"/>
 				<VBtn flat class="administer__save-button" @click="toggleAccess(doctors.values.id)">
-					<VIcon class="administer__save-button__icon">{{ !doctors.values.hide ? 'fas fa-lock' : 'fas fa-check' }}</VIcon>
-					<h6 class="administer__save-button__text">{{ !doctors.values.hide ? 'Administrer tilgang' : 'Lagre' }}</h6>
+					<VIcon style="z-index: 1;" class="administer__save-button__icon">{{ !doctors.values.hide ? 'fas fa-lock' : 'fas fa-check' }}</VIcon>
+					<h6 style="z-index: 1;" class="administer__save-button__text">{{ !doctors.values.hide ? 'Administrer tilgang' : 'Lagre' }}</h6>
 				</VBtn>
 			</CardBase>
 		</div>
@@ -54,7 +54,7 @@ import { Accesses } from '../types/Accesses'
           doctorsOffice: 'Lillegrensen Legesenter',
           doctorType: 'Fastlege',
           hasAccessTo: [
-            { name: 'Resept og medisiner',
+            { name: 'Resepter og medisiner',
               checked: false,
               expanded: false,
               indeterminate: false,
@@ -108,7 +108,7 @@ import { Accesses } from '../types/Accesses'
               indeterminate: false,
               subCat: [
                 {
-                  name: 'Sitrus Allergi',
+                  name: 'Sitrusallergi',
                   checked: false
                 },
                 {
@@ -116,7 +116,7 @@ import { Accesses } from '../types/Accesses'
                   checked: false
                 },
                 {
-                  name: 'Pels Allergi',
+                  name: 'Pelsallergi',
                   checked: false
                 },
               ]
@@ -156,7 +156,7 @@ import { Accesses } from '../types/Accesses'
           doctorType: 'Fysioterapeut',
           hasAccessTo: [
             {
-              name: 'Resept og medisiner',
+              name: 'Resepter og medisiner',
               checked: false,
               expanded: false,
               indeterminate: false,

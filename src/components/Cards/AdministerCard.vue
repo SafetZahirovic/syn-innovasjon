@@ -17,8 +17,8 @@
 		<VDivider/>
 		<VLayout pt-2 column>
 			<h4>Har tilgang til:
-				<span class="administer__access-text" v-for="(item, i) in doctor.hasAccessTo" :key="i">
-					{{ `${item.checked ? item.name + "," : ''}`}}
+				<span class="administer__access-text" v-for="(item, i) in this.accessText()" :key="i">
+					{{ item }}
 				</span>
 			</h4>
 		</VLayout>
@@ -33,6 +33,20 @@
 	export default class AdministerCard extends Vue {
     @Prop() doctor !: Doctor
     @Prop() hide !: boolean
+
+    accessText():string[] {
+      let strArr:string[] = []
+      let accessString: string = ''
+      this.doctor.hasAccessTo.forEach((value:any, index:number) => {
+        if (value.checked) {
+          accessString += value.name + ', '
+        }
+      })
+      if (accessString !== '') {
+        strArr.push(accessString.substring(0, accessString.length - 2))
+      }
+      return strArr
+    }
 	}
 </script>
 

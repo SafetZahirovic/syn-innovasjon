@@ -16,7 +16,7 @@
 		</VLayout>
 		<VDivider/>
 		<VLayout pt-2 column>
-			<h4>Has access to:</h4>
+			<h4>Har tilgang til:</h4>
 
 			<VFlex
 				style="position: relative"

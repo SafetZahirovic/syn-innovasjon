@@ -19,11 +19,11 @@ import { BloodType } from '../types/BloodType'
 						</div>
 						<div class="d-inline-flex">
 							<div class="profile__icon"><VIcon>far fa-user-md</VIcon></div>
-							<h4>Fastlege: <br><span class="normal-txt">Ola Normann</span></h4>
+							<h4>Fastlege: <br><span class="normal-txt">Ragnar Andreassen</span></h4>
 						</div>
 						<div class="d-inline-flex">
 							<div class="profile__icon"><VIcon>far fa-tint</VIcon></div>
-							<h4>Blodtype: <span class="normal-txt">O-positive</span></h4>
+							<h4>Blodtype: <span class="normal-txt">O positiv</span></h4>
 						</div>
 						<div class="profile__donor">
 							<div class="profile__icon"><VIcon>far fa-hand-holding-heart</VIcon></div>
@@ -40,7 +40,7 @@ import { BloodType } from '../types/BloodType'
 								<VIcon>far fa-address-book</VIcon>
 							</VFlex>
 							<VFlex xs10>
-								<h4>Nødkontakter</h4>
+								<h4>Pårørende</h4>
 								<p v-if="!editMode">{{ users[0].emergencyContact.name }}</p>
 								<p v-if="!editMode">{{ users[0].emergencyContact.number }}</p>
 								<VTextField
@@ -48,13 +48,13 @@ import { BloodType } from '../types/BloodType'
 									v-model="users[0].emergencyContact.name"
 									class="pt1 mt1"
 									hide-details
-									label="Edit name"></VTextField>
+									label="Rediger navn"></VTextField>
 								<VTextField
 									v-if="editMode"
 									v-model="users[0].emergencyContact.number"
 									hide-details
 									class="pa0 ma0"
-									label="Edit phone number"></VTextField>
+									label="Rediger telefonnummer"></VTextField>
 
 							</VFlex>
 							<VFlex xs1>

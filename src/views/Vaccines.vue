@@ -18,12 +18,12 @@
 			</v-chip>
 		</div>
 		<div class="card-wrapper">
-			<h3 v-if="chipSelected === 0 || chipSelected === 1" class="ml-5 pl-3 mt-4 text-uppercase">Fornybare Vaksiner</h3>
+			<h3 v-if="chipSelected === 0 || chipSelected === 1" class="ml-5 pl-3 mt-5 text-uppercase">Pågående vaksiner</h3>
 			<card-base
 				v-if="chipSelected === 0 || chipSelected === 1"
 				v-for="vaccine in onGoingVaccines"
 				:key="vaccine.name"
-				class="card mr-3 mt-2"
+				class="card mr-3 mt-4"
 			>
 				<div class="subheader-card">
 					<div>
@@ -32,7 +32,7 @@
 					</div>
 					<div>
 						<h2 class="vaccines-taken">1/{{ vaccine.vaccinationPlan.length }}</h2>
-						<h6>Tatt</h6>
+						<h6 class="text-xs-center">Tatt</h6>
 					</div>
 				</div>
 				<v-divider
@@ -85,8 +85,8 @@
 					class="mb-3 mt-3"
 				></v-divider>
 				<div>
-					<p class="mb-1"><span class="bolded-txt">Vaccine taken: </span> {{ vaccine.vaccinationPlan[0] }}</p>
-					<p class="mb-1"><span class="bolded-txt">Experation: </span> {{ vaccine.vaccinationPlan[0] }}</p>
+					<p class="mb-1"><span class="bolded-txt">Vaksinen tatt: </span> {{ vaccine.vaccinationPlan[0] }}</p>
+					<p class="mb-1"><span class="bolded-txt">Ikke aktiv etter: </span> {{ vaccine.vaccinationPlan[0] }}</p>
 				</div>
 			</card-base>
 
@@ -108,7 +108,7 @@
 				></v-divider>
 				<div>
 					<p class="mb-1"><span class="bolded-txt">Vaksinen tatt: </span> {{ vaccine.vaccinationPlan[0] }}</p>
-					<p class="mb-1"><span class="bolded-txt">Utløpsdato: </span> {{ vaccine.vaccinationPlan[0] }}</p>
+					<p class="mb-1"><span class="bolded-txt">Sluttet å være aktiv: </span> {{ vaccine.vaccinationPlan[0] }}</p>
 				</div>
 			</card-base>
 		</div>
@@ -148,14 +148,14 @@
       patient: 0,
       status: VaccinationStatus.Renewable,
       expiresAt: new Date(),
-      description: 'Vaksine mot infuensa',
+      description: 'Vaksine mot influensa',
       vaccinationPlan: [
         '2018-02-02',
         '2019-02-02'
       ]
 		},
       {
-        name: 'Pollenallergi Vaksine',
+        name: 'Allergivaksine',
         patient: 0,
         status: VaccinationStatus.Renewable,
         expiresAt: new Date(),
@@ -172,7 +172,7 @@
         expiresAt: new Date(),
         description: 'Vaksine mot polio',
         vaccinationPlan: [
-          '2017-02-01',
+          '2000-02-01',
         ]
       },
       {
@@ -182,7 +182,7 @@
         expiresAt: new Date(),
         description: 'Vaksine mot småkopper',
         vaccinationPlan: [
-          '2017-02-01',
+          '1998-02-01',
         ]
       },
       {
@@ -190,22 +190,22 @@
         patient: 0,
         status: VaccinationStatus.Ongoing,
         expiresAt: new Date(),
-        description: 'HPV Vaccine',
+        description: 'HPV vaksine',
         vaccinationPlan: [
-          '2019-04-01',
-          '2019-06-01',
-          '2019-08-01',
+          '2013-04-01',
+          '2013-06-01',
+          '2013-08-01',
         ]
       },
       {
-        name: 'HBV Vaksine',
+        name: 'HBV vaksine',
         patient: 0,
         status: VaccinationStatus.Expired,
         expiresAt: new Date(),
-        description: 'Hepatitis B Virus Vaksine',
+        description: 'Vaksine mot Hepatitt B virus',
         vaccinationPlan: [
-          '2017-04-01',
-          '2019-01-01',
+          '2007-04-01',
+          '2007-01-01',
         ]
       },
     ]
@@ -297,7 +297,7 @@
 		justify-content: space-between
 
 	.card
-		width: 80%
+		width: 80%!important
 
 	.vaccines-taken
 		text-align: center

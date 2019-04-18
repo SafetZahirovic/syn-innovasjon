@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div style="margin-bottom: 150px;">
 		<h1 class="home-headline">Min helse</h1>
 		<div class="card-list">
 			<div class="card-row">
@@ -42,7 +42,7 @@
 	export default class HomePage extends Vue {
 		menuItems1 = [
 			{
-				cardName: 'Resept og medisiner',
+				cardName: 'Resepter og medisiner',
 				cardIcon: 'fal fa-capsules',
 				linkTo: '/prescriptions'
 			},

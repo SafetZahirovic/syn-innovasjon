@@ -50,12 +50,12 @@
     allergies = {
       0: {
         patientId: '0',
-        name: 'Laktoseintoleranse',
-        allergicTo: 'Allergisk mot melkeprodukter',
+        name: 'Nøtteallergi',
+        allergicTo: 'Allergisk mot nøtter',
         allergySeverity: 'SevereAllergy',
         detected: '2019-02-29',
         lastTested: '2019-03-29',
-        reaction: 'Kraftige magesmerter',
+        reaction: 'Nummenhet i munn og svelg',
       },
       1: {
         patientId: '0',
@@ -74,6 +74,15 @@
         detected: '2019-02-29',
         lastTested: '2019-03-29',
         reaction: 'Kløe i huden og nysing',
+      },
+      3: {
+        patientId: '0',
+        name: 'Pollenallergi',
+        allergicTo: 'Allergisk mot pollen',
+        allergySeverity: 'MildAllergy',
+        detected: '2015-02-29',
+        lastTested: '2017-03-29',
+        reaction: 'Tetthet i nesen, nysing, kløende og irriterte øyne',
       }
     }
 

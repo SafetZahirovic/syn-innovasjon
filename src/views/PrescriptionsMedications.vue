@@ -1,7 +1,7 @@
 <template>
 	<VContainer>
-		<SideBar>Resept og medisiner</SideBar>
-		<HeaderJumbotron style="height: 110px" title="Resept og medisiner" icon="fal fa-pills" />
+		<SideBar>Resepter og medisiner</SideBar>
+		<HeaderJumbotron style="height: 110px" title="Resepter og medisiner" icon="fal fa-pills" />
 		<div class="card-container view-container">
 			<CardBase class="mt-4" v-for='item in this.sortedByActive' v-bind:key="item.id">
 				<VLayout pb-3>
@@ -16,9 +16,9 @@
 					<VFlex xs4 text-xs-center>
 						<!--<div :style="[this.prescriptionMedication.active ? {background:red} : {background:grey}]" class="prescription__status mb-2">{{ this.prescriptionMedication.active ? 'active' : 'expired' }}</div>-->
 						<div :class="[item.values.active && {'background-neon':true}]" class="prescription__status mb-2">
-							<h6>{{ item.values.active ? 'Aktive' : 'Utløpt' }}</h6>
+							<h6>{{ item.values.active ? 'Aktiv' : 'Utløpt' }}</h6>
 						</div>
-						<div class="d-flex align-center">
+						<div class="d-inline-flex align-center">
 							<!--<h6 class="pr-1">{{ this.prescriptionMedication.isMedicationStrong && 'strong'}}</h6>-->
 							<h6 class="pr-1">{{ item.values.isMedicationStrong ? 'Sterke' : ""}}</h6>
 							<VAvatar
