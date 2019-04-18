@@ -5,6 +5,6 @@ export interface Doctor {
   nameOfDoctor: string
   doctorsOffice: string
   doctorType: string
-  hasAccessTo: {name:string, checked:boolean, expanded: boolean, subCat:{name: string, checked: boolean}[]}[] | string[]
+  hasAccessTo: {name:string, checked:boolean, expanded: boolean, indeterminate:boolean, subCat:{name: string, checked: boolean}[]}[] | string[]
   hide:boolean
 }

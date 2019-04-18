@@ -1,7 +1,7 @@
 <template>
 	<VContainer>
-		<SideBar>Diagnosis</SideBar>
-		<HeaderJumbotron title="Diagnosis" icon="fal fa-notes-medical" />
+		<SideBar>Diagnoser</SideBar>
+		<HeaderJumbotron style="height: 110px" title="Diagnoser" icon="fal fa-notes-medical" />
 		<div class="card-container view-container">
 			<CardBase class="mt-4" v-for="diagnose in diagnoses" :key="diagnose.id">
 				<VContainer class="card-content">
@@ -20,8 +20,8 @@
 					</VLayout>
 					<VLayout pt-3>
 						<VFlex xs12>
-							<p><span class="bolded-txt">Date of diagnosis: </span>{{ diagnose.dateOfDiagnosis }}</p>
-							<p><span class="bolded-txt">Description: </span>{{ diagnose.description }}</p>
+							<p><span class="bolded-txt">Dato for diagnose: </span>{{ diagnose.dateOfDiagnosis }}</p>
+							<p><span class="bolded-txt">Beskrivelse: </span>{{ diagnose.description }}</p>
 						</VFlex>
 					</VLayout>
 				</VContainer>
@@ -47,31 +47,31 @@
 	export default class Diagnosis extends Vue {
 		diagnoses = [{
 				id: 0,
-				name: 'Coronary artery disease(CAD)',
+				name: 'Koronararteriesykdom(KAD)',
 				category: DiagnosisCategory.Heart,
 				dateOfDiagnosis: '14.03.1995',
-				description: 'Narrowing of blood vessels that supply blood to the heart'
+				description: 'Innsnevring av blodkar som gir blod til hjertet'
 			},
 			{
 				id: 1,
-				name: 'Stroke',
+				name: 'Infarkt',
 				category: DiagnosisCategory.Brain,
 				dateOfDiagnosis: '20.02.1992',
-				description: 'Blockage or leakage of brain arteries'
+				description: 'Blokkering eller lekkasje av hjernearterier'
 			},
 			{
 				id: 2,
-				name: 'Inflammatory bowel disease',
+				name: 'Inflammatorisk tarmsykdom',
 				category: DiagnosisCategory.Intestines,
 				dateOfDiagnosis: '05.10.1997',
-				description: 'Disorders that involve chronic inflammation of your digestive tract.'
+				description: 'Lidelser som involverer kronisk betennelse i fordøyelseskanalen din.'
 			},
 			{
 				id: 3,
-				name: 'Dehydration due to diarrheal diseases',
+				name: 'Dehydrering på grunn av diarrésykdommer',
 				category: DiagnosisCategory.Intestines,
 				dateOfDiagnosis: '18.07.2002',
-				description: 'If your diarrhea lasts more than a few days, your body loses too much water and salt. This causes dehydration, which can lead to death.'
+				description: 'Hvis diaréen varer mer enn noen dager, mister kroppen din for mye vann og salt. Dette fører til dehydrering, noe som kan føre til døden.'
 			}]
 
 		get diagnosisCat() {

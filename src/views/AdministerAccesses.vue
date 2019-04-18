@@ -1,9 +1,9 @@
 import { Accesses } from '../types/Accesses'
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
-	<div>
-		<SideBar>Administer accesses</SideBar>
-		<HeaderJumbotron title="Administer  Accesses" style="padding-top: 16px; padding-left: 40px"/>
-		<div class="card-container view-container mt-4" >
+	<VContainer>
+		<SideBar>Administrer tilganger</SideBar>
+		<HeaderJumbotron title="Administrer tilganger" style="width:80%; padding-top: 16px; margin-left: 0; height: 110px"/>
+		<div style="margin-bottom: 16px;" class="card-container view-container mt-4" >
 			<CardBase class="mt-4" v-for="doctors in doctorValuesDB" v-bind:key="doctors.values.id">
 				<AdministerEditCard
 					v-if="doctors.values.hide"
@@ -17,11 +17,11 @@ import { Accesses } from '../types/Accesses'
 					:hide="doctors.values.hide"/>
 				<VBtn flat class="administer__save-button" @click="toggleAccess(doctors.values.id)">
 					<VIcon class="administer__save-button__icon">{{ !doctors.values.hide ? 'fas fa-lock' : 'fas fa-check' }}</VIcon>
-					<h6 class="administer__save-button__text">{{ !doctors.values.hide ? 'Administer access' : 'Save changes' }}</h6>
+					<h6 class="administer__save-button__text">{{ !doctors.values.hide ? 'Administrer tilgang' : 'Lagre' }}</h6>
 				</VBtn>
 			</CardBase>
 		</div>
-	</div>
+	</VContainer>
 </template>
 
 <script lang="ts">
@@ -52,11 +52,12 @@ import { Accesses } from '../types/Accesses'
           id: '0',
           nameOfDoctor: 'Ragnar Andreassen',
           doctorsOffice: 'Lillegrensen Legesenter',
-          doctorType: 'Regular Practitioner',
+          doctorType: 'Fastlege',
           hasAccessTo: [
-            { name: 'Prescriptions & Medications',
+            { name: 'Resept og medisiner',
               checked: false,
               expanded: false,
+              indeterminate: false,
               subCat: [
                 {
                 name: 'Microgynon',
@@ -77,54 +78,53 @@ import { Accesses } from '../types/Accesses'
               ]
             },
             {
-              name: 'Diagnosis',
+              name: 'Diagnoser',
               checked: true,
               expanded: false,
+              indeterminate: false,
               subCat: [
                 {
-                  name: 'Microgynon',
+                  name: 'Koronararteriesykdom',
                   checked: false
                 },
                 {
-                  name: 'Paralgin forte',
+                  name: 'Infarkt',
                   checked: false
                 },
                 {
-                  name: 'Apo-Amoxi',
+                  name: 'Inflammatorisk tarmsykdom',
                   checked: false
                 },
                 {
-                  name: 'Hydrocodone',
+                  name: 'Dehydrering på grunn av diarrésykdommer',
                   checked: false
                 },
               ]
             },
             {
-              name: 'Allergies & Intolerances',
-              checked: false,
+              name: 'Allergier og intoleranser',
+              checked: true,
               expanded: false,
+              indeterminate: false,
               subCat: [
                 {
-                  name: 'Microgynon',
+                  name: 'Sitrus Allergi',
                   checked: false
                 },
                 {
-                  name: 'Paralgin forte',
+                  name: 'Laktoseintolerant',
                   checked: false
                 },
                 {
-                  name: 'Apo-Amoxi',
-                  checked: false
-                },
-                {
-                  name: 'Hydrocodone',
+                  name: 'Pels Allergi',
                   checked: false
                 },
               ]
             },
-            { name: 'Vacines',
+            { name: 'Vaksineer',
               checked: false,
               expanded: false,
+              indeterminate: false,
               subCat: [
                 {
                   name: 'Microgynon',
@@ -153,12 +153,13 @@ import { Accesses } from '../types/Accesses'
           id: '1',
           nameOfDoctor: 'Tobias Olsen',
           doctorsOffice: 'Oslo Legevakt',
-          doctorType: 'Gynecologist',
+          doctorType: 'Fysioterapist',
           hasAccessTo: [
             {
-              name: 'Prescriptions & Medications',
+              name: 'Resept og medisiner',
               checked: false,
               expanded: false,
+              indeterminate: false,
               subCat: [
                 {
                   name: 'Microgynon',
@@ -179,66 +180,49 @@ import { Accesses } from '../types/Accesses'
               ]
             },
             {
-              name: 'Diagnosis',
+              name: 'Diagnoser',
               checked: true,
               expanded: false,
+              indeterminate: false,
               subCat: [
                 {
-                  name: 'Coronary artery disease(CAD)',
+                  name: 'Koronararteriesykdom',
                   checked: false
                 },
                 {
-                  name: 'Stroke',
+                  name: 'Infarkt',
                   checked: false
                 },
                 {
-                  name: 'Inflammatory bowel disease',
+                  name: 'Inflammatorisk tarmsykdom',
                   checked: false
                 },
                 {
-                  name: 'Dehydration due to diarrheal diseases',
+                  name: 'Dehydrering på grunn av diarrésykdommer',
                   checked: false
                 },
               ]
             },
             {
-              name: 'Allergies & Intolerances',
-              checked: true,
-              expanded: false,
-              subCat: [
-                {
-                  name: 'Citrus Allergy',
-                  checked: false
-                },
-                {
-                  name: 'Lactose Intolerant',
-                  checked: false
-                },
-                {
-                  name: 'Fur Allergy',
-                  checked: false
-                },
-              ]
-            },
-            {
-              name: 'Vaccines',
+              name: 'Vaksiner',
               checked: false,
               expanded: false,
+              indeterminate: false,
               subCat: [
                 {
-                  name: 'Flu Vaccine',
+                  name: 'Influensavaksine',
                   checked: false
                 },
                 {
-                  name: 'Pollen Allergy Vaccine',
+                  name: 'Pollen Allergi Vaksine',
                   checked: false
                 },
                 {
-                  name: 'Polio Vaccine',
+                  name: 'Polio Vaksine',
                   checked: false
                 },
                 {
-                  name: 'Small Pox Vaccine',
+                  name: 'Småkopp Vaksine',
                   checked: false
                 },
                 {
@@ -246,7 +230,39 @@ import { Accesses } from '../types/Accesses'
                   checked: false
                 },
                 {
-                  name: 'HBV Vaccine',
+                  name: 'HBV Vaksine',
+                  checked: false
+                },
+              ]
+            },
+            {
+              name: 'Vaksiner',
+              checked: false,
+              expanded: false,
+              indeterminate: false,
+              subCat: [
+                {
+                  name: 'Influensavaksine',
+                  checked: false
+                },
+                {
+                  name: 'Pollen Allergi Vaksine',
+                  checked: false
+                },
+                {
+                  name: 'Polio Vaksinee',
+                  checked: false
+                },
+                {
+                  name: 'Kopper Vaksine',
+                  checked: false
+                },
+                {
+                  name: 'Gardasil 9',
+                  checked: false
+                },
+                {
+                  name: 'HBV Vaksine',
                   checked: false
                 },
               ]

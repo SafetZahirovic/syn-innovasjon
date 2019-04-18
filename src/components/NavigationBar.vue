@@ -96,16 +96,16 @@
 		drawer = null
 
 		menuItemsOne = [
-			{ icon: 'far fa-capsules', iconClass: 'icon', title: 'Prescriptions & Medications', navTo: '/prescriptions' },
-			{ icon: 'far fa-notes-medical', iconClass: 'icon', title: 'Diagnosis', navTo: '/diagnosis' },
-			{ icon: 'far fa-allergies', iconClass: 'icon', title: 'Allergies & Intolerances', navTo: '/allergies' },
-			{ icon: 'far fa-syringe', iconClass: 'icon', title: 'Vaccination', navTo: '/vaccines' },
-			{ icon: 'far fa-eye', iconClass: 'icon', title: 'Administer Accesses', navTo: '/administer' }
+			{ icon: 'far fa-capsules', iconClass: 'icon', title: 'Resept og medisiner', navTo: '/prescriptions' },
+			{ icon: 'far fa-notes-medical', iconClass: 'icon', title: 'Diagnoser', navTo: '/diagnosis' },
+			{ icon: 'far fa-allergies', iconClass: 'icon', title: 'Allergier og intoleranser', navTo: '/allergies' },
+			{ icon: 'far fa-syringe', iconClass: 'icon', title: 'Vaksinasjoner', navTo: '/vaccines' },
+			{ icon: 'far fa-eye', iconClass: 'icon', title: 'Administrer tilganger', navTo: '/administer' }
 		]
 		items2 = [
-			{ icon: 'far fa-user-alt', iconClass: 'icon', title: 'My Profile', navTo: '/profile' },
-			{ icon: 'far fa-sign-out-alt', iconClass: 'icon', title: 'Sign Out', navTo: '/' },
-			{ icon: 'far fa-home', iconClass: 'icon', title: 'Home', navTo: '/' }
+			{ icon: 'far fa-user-alt', iconClass: 'icon', title: 'Min Profil', navTo: '/profile' },
+			{ icon: 'far fa-sign-out-alt', iconClass: 'icon', title: 'Log ut', navTo: '/' },
+			{ icon: 'far fa-home', iconClass: 'icon', title: 'Hjem', navTo: '/' }
 		]
 	}
 </script>

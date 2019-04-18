@@ -1,8 +1,8 @@
 import { BloodType } from '../types/BloodType'
 <template>
 	<VContainer>
-		<SideBar>My Profile</SideBar>
-		<HeaderJumbotron title="My Profile" icon="fal fa-user-alt"></HeaderJumbotron>
+		<SideBar>Min profil</SideBar>
+		<HeaderJumbotron title="Min profil" icon="fal fa-user-alt"></HeaderJumbotron>
 		<div class="card-container view-container" v-if="patient">
 			<CardBase>
 				<VLayout>
@@ -11,19 +11,19 @@ import { BloodType } from '../types/BloodType'
 							<div class="profile__icon">
 								<VIcon>far fa-user-alt</VIcon>
 							</div>
-							<h4>Name: <span class="normal-txt">{{ fullName }}</span></h4>
+							<h4>Navn: <span class="normal-txt">{{ fullName }}</span></h4>
 						</div>
 						<div class="d-inline-flex">
 							<div class="profile__icon"><VIcon>far fa-calendar-day</VIcon></div>
-							<h4>Birth Date: <span class="normal-txt">{{ birthDate }}</span></h4>
+							<h4>Fødselsdato: <span class="normal-txt">{{ birthDate }}</span></h4>
 						</div>
 						<div class="d-inline-flex">
 							<div class="profile__icon"><VIcon>far fa-user-md</VIcon></div>
-							<h4>Regular General Practitioner: <br><span class="normal-txt">Ola Normann</span></h4>
+							<h4>Fastlege: <br><span class="normal-txt">Ola Normann</span></h4>
 						</div>
 						<div class="d-inline-flex">
 							<div class="profile__icon"><VIcon>far fa-tint</VIcon></div>
-							<h4>Blood type: <span class="normal-txt">O-positive</span></h4>
+							<h4>Blod type: <span class="normal-txt">O-positive</span></h4>
 						</div>
 						<div class="profile__donor">
 							<div class="profile__icon"><VIcon>far fa-hand-holding-heart</VIcon></div>
@@ -46,7 +46,7 @@ import { BloodType } from '../types/BloodType'
 								<VTextField
 									v-if="editMode"
 									v-model="users[0].emergencyContact.name"
-									class="pa0 ma0"
+									class="pt1 mt1"
 									hide-details
 									label="Edit name"></VTextField>
 								<VTextField
@@ -65,7 +65,7 @@ import { BloodType } from '../types/BloodType'
 						<VCardActions v-if="editMode" @click="setEditMode" class="justify-center">
 							<VBtn flat class="profile__emergency__btn">
 								<VIcon class="mx-2">fas fa-check</VIcon>
-								<h6 class="neon-green-txt">Save changes</h6>
+								<h6 class="neon-green-txt">Lagre</h6>
 							</VBtn>
 						</VCardActions>
 					</VFlex>
@@ -169,7 +169,7 @@ import { BloodType } from '../types/BloodType'
 
 	.justify-center
 		padding: 0
-
 	h6
 		margin-top: 0
+
 </style>

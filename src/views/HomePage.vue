@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1 class="home-headline">My Health</h1>
+		<h1 class="home-headline">Min helse</h1>
 		<div class="card-list">
 			<div class="card-row">
 				<CardBase
@@ -42,30 +42,30 @@
 	export default class HomePage extends Vue {
 		menuItems1 = [
 			{
-				cardName: 'Prescriptions & Medications',
+				cardName: 'Resept og medisiner',
 				cardIcon: 'fal fa-capsules',
 				linkTo: '/prescriptions'
 			},
 			{
-				cardName: 'Diagnosis',
+				cardName: 'Diagnoser',
 				cardIcon: 'fal fa-notes-medical',
 				linkTo: '/diagnosis'
 			},
 		]
 		menuItems2 = [
 			{
-				cardName: 'Allergies and Intolerances',
+				cardName: 'Allergier og intoleranser',
 				cardIcon: 'fal fa-allergies',
 				linkTo: '/allergies'
 			},
 			{
-				cardName: 'Vaccination',
+				cardName: 'Vaksinasjoner',
 				cardIcon: 'fal fa-syringe',
 				linkTo: '/vaccines'
 			},
 		]
 		bottomCard = {
-			cardName: 'Administer access',
+			cardName: 'Administrer tilgang',
 			cardIcon: 'fal fa-eye',
 			linkTo: '/administer'
 		}

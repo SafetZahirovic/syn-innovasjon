@@ -8,7 +8,7 @@
 			<VFlex xs1>
 				<VIcon>fas fa-user-md</VIcon>
 			</VFlex>
-			<VFlex xs11>
+			<VFlex ml-3 xs11>
 				<h4>{{ doctor.nameOfDoctor }}</h4>
 				<p><span class="italic-txt">{{ doctor.doctorsOffice }}</span></p>
 				<p class="green-txt">{{ doctor.doctorType }}</p>

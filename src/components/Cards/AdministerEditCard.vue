@@ -5,7 +5,7 @@
 			justify-start
 			row
 			pb-2>
-			<VFlex xs1>
+			<VFlex mr-3 xs1>
 				<VIcon>fas fa-user-md</VIcon>
 			</VFlex>
 			<VFlex xs11>
@@ -20,24 +20,25 @@
 
 			<VFlex
 				style="position: relative"
-				v-for="(item, i) in fkData"
-				:key="i"
+				v-for="(item, id) in fkData"
+				:key="id"
 				xs12>
 
 				<VCheckbox
 					hide-details
+					:indeterminate="item.indeterminate"
 					v-model="item.checked"
 					class="checkbox"
 					@change="addToDoctors(item)"
 					:label="item.name"></VCheckbox>
-				<VIcon @click="toggleShowSubCat(item.name)" style=" position:absolute; right: 0; top:20px;">fas fa-chevron-down</VIcon>
+				<VIcon @click="toggleShowSubCat(item.name)" style=" position:absolute; right: 0; top:20px;">fal fa-chevron-down</VIcon>
 				<div
 					v-if="item.expanded"
 					style="margin-left: 31.5px"
 					v-for="(subcat, i) in item.subCat"
 					:key="i">
 					<VCheckbox
-						@change="checkCatFromSubCat"
+						@change="checkCatFromSubCat(item.name)"
 						hide-details
 						v-model="subcat.checked"
 						:label="subcat.name"></VCheckbox>
@@ -68,8 +69,6 @@
     }
     toggleShowSubCat(catName: string) {
       this.doctors.hasAccessTo.forEach((e:any) => {
-        console.log(catName)
-        console.log(e.name)
           if (catName === e.name) {
             e.expanded = !e.expanded
           }
@@ -83,13 +82,20 @@
           e.checked ? e.checked = true : e.checked = false
         }
       })
-      console.log(this.doctorsNew.hasAccessTo)
       this.$emit('update', this.doctorsNew)
     }
-    checkCatFromSubCat() {
+    checkCatFromSubCat(name: string) {
       this.doctors.hasAccessTo.forEach((e:any) => {
-          Object.values(e.subCat).every((o:any) => o.checked === true) ? e.checked = true : e.checked = false
-        })
+          if (Object.values(e.subCat).every((o:any) => o.checked === true)) {
+            e.indeterminate = false
+            e.checked = true
+          } else if (Object.values(e.subCat).every((o: any) => o.checked === false)) {
+            e.checked = false
+            e.indeterminate = false
+          } else if (e.name === name && Object.values(e.subCat).some((o: any) => o.checked === false)) {
+            e.indeterminate = true
+          }
+      })
     }
 	}
 </script>

@@ -1,7 +1,7 @@
 <template>
 	<VContainer>
-		<SideBar>Prescriptions & Medications</SideBar>
-		<HeaderJumbotron title="Prescriptions & Medications" icon="fal fa-pills" />
+		<SideBar>Resept og medisiner</SideBar>
+		<HeaderJumbotron style="height: 110px" title="Resept og medisiner" icon="fal fa-pills" />
 		<div class="card-container view-container">
 			<CardBase class="mt-4" v-for='item in this.sortedByActive' v-bind:key="item.id">
 				<VLayout pb-3>
@@ -22,6 +22,7 @@
 							<!--<h6 class="pr-1">{{ this.prescriptionMedication.isMedicationStrong && 'strong'}}</h6>-->
 							<h6 class="pr-1">{{ item.values.isMedicationStrong ? 'strong' : ""}}</h6>
 							<VAvatar
+								size="32"
 								class="warning-strong"
 								v-bind:style="item.values.isMedicationStrong ? {'display':'block'} : {'display':'none'}"
 								color="secondary"
@@ -41,9 +42,9 @@
 						<!--<p><span class="bolded-txt">Issue date: </span>{{ this.prescriptionMedication.issueDate }}</p>
 						<p><span class="bolded-txt">Expiration date: </span>{{ this.prescriptionMedication.expirationDate }}</p>
 						<p><span class="bolded-txt">Dossage & Directions: </span>{{ this.prescriptionMedication.dossageDirection }}</p>-->
-						<p><span class="bolded-txt">Issue date: </span>{{ item.values.issueDate }}</p>
-						<p><span class="bolded-txt">Active until: </span>{{ item.values.expirationDate }}</p>
-						<p><span class="bolded-txt">Dossage & Directions: </span>{{ item.values.dossageDirection }}</p>
+						<p><span class="bolded-txt">Utgivelsesdato: </span>{{ item.values.issueDate }}</p>
+						<p><span class="bolded-txt">Aktiv til: </span>{{ item.values.expirationDate }}</p>
+						<p><span class="bolded-txt">Dosering og beskrivelse: </span>{{ item.values.dossageDirection }}</p>
 					</VFlex>
 				</VLayout>
 			</CardBase>
@@ -68,11 +69,11 @@
         values: {
         id: '0',
         name: 'Microgynon',
-        description: 'Birth control',
+        description: 'Prevensjon',
         isMedicationStrong: false,
         issueDate: '2008-10-29',
-        expirationDate: 'Never',
-        dossageDirection: 'Take 2 pills every morning',
+        expirationDate: 'Aldri',
+        dossageDirection: 'Ta 2 piller hver morgen',
         active: true
       }
     },
@@ -80,11 +81,11 @@
         values: {
           id: '1',
           name: 'Paralgin forte',
-          description: 'Strong painkillers',
+          description: 'Sterke smertestillende midler',
           isMedicationStrong: true,
           issueDate: '2008-05-15',
-          expirationDate: 'Never',
-          dossageDirection: 'Take 1 pill after eating',
+          expirationDate: 'Aldri',
+          dossageDirection: 'Ta 1 pille etter å ha spist',
           active: true
         },
       },
@@ -96,7 +97,7 @@
           isMedicationStrong: false,
           issueDate: '2009-01-02',
           expirationDate: '2009-02-02',
-          dossageDirection: 'Take 1 pill after eating',
+          dossageDirection: 'Antibiotika',
           active: false
         },
       },
@@ -107,8 +108,8 @@
           description: 'Opioid',
           isMedicationStrong: true,
           issueDate: '2004-11-18',
-          expirationDate: 'Never',
-          dossageDirection: '1 tablespoonful every 4-6 hours',
+          expirationDate: 'Aldri',
+          dossageDirection: '1 spiseskje hver 4-6 timer',
           active: false
         },
       }
@@ -133,12 +134,8 @@
 	h6
 		margin: 0
 
-	.warning-strong
-		width: 16px !important
-		height: 25px !important
-
 	.warning-icon
-		font-size: 0.9em !important
+		font-size: 1em !important
 
 	.prescription
 		&__status

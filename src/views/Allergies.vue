@@ -1,11 +1,11 @@
 <template>
 	<VContainer>
-		<SideBar>Allergies & Intolerances</SideBar>
-		<HeaderJumbotron title='Allergies & Intolerances' icon='fal fa-allergies' />
+		<SideBar>Allergier og intoleranser</SideBar>
+		<HeaderJumbotron style="height: 110px" title='Allergier og intoleranser' icon='fal fa-allergies' />
 		<div class='card-container view-container'>
-			<CardBase v-for='allergy in allergies' :key='allergy.id' class='mb-4'>
+			<CardBase v-for='allergy in allergies' :key='allergy.id' class='mb-4 mt-4'>
 				<VLayout pb-3>
-					<VFlex xs9>
+					<VFlex style="margin-right: 8px;" xs9>
 						<VCardTitle class='card-title'>
 							<h4>{{ allergy.name }}</h4>
 						</VCardTitle>
@@ -17,17 +17,17 @@
 							<VIcon v-if="allergy.allergySeverity === 'ModerateAllergy'" small color='warning'>fas fa-exclamation</VIcon>
 							<VIcon v-if="allergy.allergySeverity === 'MildAllergy'" small color='success'>far fa-check</VIcon>
 						</VAvatar>
-						<h6 v-if="allergy.allergySeverity === 'SevereAllergy'">Severe Allergy</h6>
-						<h6 v-if="allergy.allergySeverity === 'ModerateAllergy'">Moderate Allergy</h6>
-						<h6 v-if="allergy.allergySeverity === 'MildAllergy'">Mild Allergy</h6>
+						<h6 v-if="allergy.allergySeverity === 'SevereAllergy'">Alvorlig Allergi</h6>
+						<h6 v-if="allergy.allergySeverity === 'ModerateAllergy'">Moderat Allergi</h6>
+						<h6 v-if="allergy.allergySeverity === 'MildAllergy'">Mild Allergi</h6>
 					</VFlex>
 				</VLayout>
 				<VDivider></VDivider>
 				<VLayout pt-3>
 					<VFlex xs12>
-						<p><span class='bolded-txt'>Detected date: </span>{{ allergy.detected }}</p>
-						<p><span class='bolded-txt'>Last tested: </span>{{ allergy.lastTested }}</p>
-						<p><span class='bolded-txt'>Reaction: </span>{{ allergy.reaction }}</p>
+						<p><span class='bolded-txt'>Registrert dato: </span>{{ allergy.detected }}</p>
+						<p><span class='bolded-txt'>Sist testet: </span>{{ allergy.lastTested }}</p>
+						<p><span class='bolded-txt'>Reaksjon: </span>{{ allergy.reaction }}</p>
 					</VFlex>
 				</VLayout>
 			</CardBase>
@@ -50,30 +50,30 @@
     allergies = {
       0: {
         patientId: '0',
-        name: 'Lactose Intolerant',
-        allergicTo: 'Milk',
+        name: 'Laktoseintolerant',
+        allergicTo: 'Melk',
         allergySeverity: 'SevereAllergy',
         detected: '2019-02-29',
         lastTested: '2019-03-29',
-        reaction: 'Bad stomach pains',
+        reaction: 'Dårlig magesmerter',
       },
       1: {
         patientId: '0',
-        name: 'Citrus Allergy',
-        allergicTo: 'Allergic to all Citrus Fruits',
+        name: 'Sitrus Allergi',
+        allergicTo: 'Allergisk for alle sitrus frukt',
         allergySeverity: 'MildAllergy',
         detected: '2019-02-29',
         lastTested: '2019-03-29',
-        reaction: 'Itchy Throat',
+        reaction: 'Klø i halsen',
       },
       2: {
         patientId: '0',
-        name: 'Fur Allergy',
-        allergicTo: 'Allergic to all typed of Fur on Animals',
+        name: 'Pels Allergi',
+        allergicTo: 'Allergisk for alle typer pels',
         allergySeverity: 'ModerateAllergy',
         detected: '2019-02-29',
         lastTested: '2019-03-29',
-        reaction: 'Itchy Skin and Sneezing',
+        reaction: 'Kløende hud og nysing',
       }
     }
 

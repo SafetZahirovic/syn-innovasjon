@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<side-bar>Vaccination</side-bar>
+		<side-bar>Vaksinasjoner</side-bar>
 		<div class="header">
-			<h1 class="vaccines-headline"> Vaccination </h1>
+			<h1 class="vaccines-headline"> Vaksinasjoner </h1>
 			<v-icon class="header-icon ml-4 mb-3">fal fa-syringe</v-icon>
 		</div>
 		<div class="chips-container">
@@ -18,7 +18,7 @@
 			</v-chip>
 		</div>
 		<div class="card-wrapper">
-			<h3 v-if="chipSelected === 0 || chipSelected === 1" class="ml-5 pl-3 mt-4 text-uppercase">Ongoing Vaccinations</h3>
+			<h3 v-if="chipSelected === 0 || chipSelected === 1" class="ml-5 pl-3 mt-4 text-uppercase">Pågående Vaksinasjoner</h3>
 			<card-base
 				v-if="chipSelected === 0 || chipSelected === 1"
 				v-for="vaccine in onGoingVaccines"
@@ -32,7 +32,7 @@
 					</div>
 					<div>
 						<h2 class="vaccines-taken">1/{{ vaccine.vaccinationPlan.length }}</h2>
-						<h6>Taken</h6>
+						<h6>Tatt</h6>
 					</div>
 				</div>
 				<v-divider
@@ -40,13 +40,13 @@
 					class="mb-3 mt-3"
 				></v-divider>
 				<div>
-					<p class="mb-1"><span class="bolded-txt">First vaccine was taken: </span> {{ vaccine.vaccinationPlan[0] }}</p>
-					<p class="mb-1"><span class="bolded-txt">Second vaccine should be taken: </span> <br> Three months after the first</p>
-					<p v-if="vaccine.vaccinationPlan.length > 2" class="mb-1"><span class="bolded-txt">Third vaccine should be taken: </span> <br> Six months after the first </p>
+					<p class="mb-1"><span class="bolded-txt">Første vaksine ble tatt: </span> {{ vaccine.vaccinationPlan[0] }}</p>
+					<p class="mb-1"><span class="bolded-txt">Andre vaksiner bør tas : </span> <br> Tre måneder etter den første</p>
+					<p v-if="vaccine.vaccinationPlan.length > 2" class="mb-1"><span class="bolded-txt">Tredje vaksine bør tas : </span> <br> Seks måneder etter den første </p>
 				</div>
 			</card-base>
 
-			<h3 v-if="chipSelected === 0 || chipSelected === 2" class="ml-5 pl-3 mt-5 text-uppercase">Active Immunity Vaccination</h3>
+			<h3 v-if="chipSelected === 0 || chipSelected === 2" class="ml-5 pl-3 mt-5 text-uppercase">Aktiv immunitetsvaksinasjon</h3>
 			<card-base
 				v-if="chipSelected === 0 || chipSelected === 2"
 				v-for="vaccine in permanentVaccines"
@@ -64,11 +64,11 @@
 					class="mb-3 mt-3"
 				></v-divider>
 				<div>
-					<p class="mb-1"><span class="bolded-txt">Vaccine taken: </span> {{ vaccine.vaccinationPlan[0] }}</p>
+					<p class="mb-1"><span class="bolded-txt">Vaksinen tatt: </span> {{ vaccine.vaccinationPlan[0] }}</p>
 				</div>
 			</card-base>
 
-			<h3 v-if="chipSelected === 0 || chipSelected === 3" class="ml-5 pl-3 mt-5 text-uppercase">Renewable Vaccination</h3>
+			<h3 v-if="chipSelected === 0 || chipSelected === 3" class="ml-5 pl-3 mt-5 text-uppercase">Fornybar Vaksinasjon</h3>
 			<card-base
 				v-if="chipSelected === 0 || chipSelected === 3"
 				v-for="vaccine in renewableVaccines"
@@ -90,7 +90,7 @@
 				</div>
 			</card-base>
 
-			<h3 v-if="chipSelected === 0 || chipSelected === 4" class="ml-5 pl-3 mt-5 text-uppercase">Expired Vaccination</h3>
+			<h3 v-if="chipSelected === 0 || chipSelected === 4" class="ml-5 pl-3 mt-5 text-uppercase">Utløpt Vaksinasjon</h3>
 			<card-base
 				v-if="chipSelected === 0 || chipSelected === 4"
 				v-for="vaccine in expiredVaccines"
@@ -107,8 +107,8 @@
 					class="mb-3 mt-3"
 				></v-divider>
 				<div>
-					<p class="mb-1"><span class="bolded-txt">Vaccine taken: </span> {{ vaccine.vaccinationPlan[0] }}</p>
-					<p class="mb-1"><span class="bolded-txt">Experation: </span> {{ vaccine.vaccinationPlan[0] }}</p>
+					<p class="mb-1"><span class="bolded-txt">Vaksinen tatt: </span> {{ vaccine.vaccinationPlan[0] }}</p>
+					<p class="mb-1"><span class="bolded-txt">Utløpsdato: </span> {{ vaccine.vaccinationPlan[0] }}</p>
 				</div>
 			</card-base>
 		</div>
@@ -144,43 +144,43 @@
       expiresAt: Date;
       status: VaccinationStatus
 		}[] = [{
-      name: 'Flu Vaccine',
+      name: 'Influensavaksine',
       patient: 0,
       status: VaccinationStatus.Renewable,
       expiresAt: new Date(),
-      description: 'Vaccine for the Flu',
+      description: 'Vaccine mot infuense',
       vaccinationPlan: [
         '2018-02-02',
         '2019-02-02'
       ]
 		},
       {
-        name: 'Pollen Allergy Vaccine',
+        name: 'Pollen Allergi Vaksine',
         patient: 0,
         status: VaccinationStatus.Renewable,
         expiresAt: new Date(),
-        description: 'Vaccine against different Pollen Allergies',
+        description: 'Vaksine mot forskjellige pollenallergier',
         vaccinationPlan: [
           '2017-02-01',
           '2019-06-20'
         ]
       },
       {
-        name: 'Polio Vaccine',
+        name: 'Polio Vaksine',
         patient: 0,
         status: VaccinationStatus.Permanent,
         expiresAt: new Date(),
-        description: 'Vaccine for against Polio',
+        description: 'Vaksine mot polio',
         vaccinationPlan: [
           '2017-02-01',
         ]
       },
       {
-        name: 'Small Pox Vaccine',
+        name: 'Småkopp Vaksine',
         patient: 0,
         status: VaccinationStatus.Permanent,
         expiresAt: new Date(),
-        description: 'Vaccine against small pox',
+        description: 'Vaksine mot småkopper',
         vaccinationPlan: [
           '2017-02-01',
         ]
@@ -198,11 +198,11 @@
         ]
       },
       {
-        name: 'HBV Vaccine',
+        name: 'HBV Vaksine',
         patient: 0,
         status: VaccinationStatus.Expired,
         expiresAt: new Date(),
-        description: 'Hepatitis B Virus Vaccine',
+        description: 'Hepatitis B Virus Vaksine',
         vaccinationPlan: [
           '2017-04-01',
           '2019-01-01',
