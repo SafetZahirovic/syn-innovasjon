@@ -59,7 +59,7 @@
       },
       1: {
         patientId: '0',
-        name: 'Sitrus Allergi',
+        name: 'Sitrusallergi',
         allergicTo: 'Allergisk mot sitrusfrukt',
         allergySeverity: 'MildAllergy',
         detected: '2019-02-29',
