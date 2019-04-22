@@ -2,7 +2,7 @@ import { Accesses } from '../types/Accesses'
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
 	<VContainer>
 		<SideBar>Administrer tilganger</SideBar>
-		<HeaderJumbotron title="Administrer tilganger" style="width:80%; padding-top: 16px; margin-left: 0; height: 110px"/>
+		<HeaderJumbotron title="Administrer tilganger" style="width:80%; margin-left: 0; height: 110px"/>
 		<div style="margin-bottom: 16px;" class="card-container view-container mt-4" >
 			<CardBase class="mt-4" v-for="doctors in doctorValuesDB" v-bind:key="doctors.values.id">
 				<AdministerEditCard

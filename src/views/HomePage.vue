@@ -1,5 +1,5 @@
 <template>
-	<div style="margin-bottom: 150px;">
+	<div class="mb-5">
 		<h1 class="home-headline">Min helse</h1>
 		<div class="card-list">
 			<div class="card-row">

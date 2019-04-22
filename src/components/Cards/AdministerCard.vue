@@ -36,12 +36,9 @@
 
     accessText():string[] {
       let strArr:string[] = []
-      let accessString: string = ''
-      this.doctor.hasAccessTo.forEach((value:any, index:number) => {
-        if (value.checked) {
-          accessString += value.name + ', '
-        }
-      })
+      let accessString: string = this.doctor.hasAccessTo.filter(value => value.checked)
+        .map(value => value.name)
+        .join(', ')
       if (accessString !== '') {
         strArr.push(accessString.substring(0, accessString.length - 2))
       }
